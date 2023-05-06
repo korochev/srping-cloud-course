@@ -1,0 +1,25 @@
+server:
+  port: 7474
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+spring:
+  zipkin:
+    enabled: true
+    base-url: http://62.84.122.194:9411/
+  application:
+    name: client-service
+
+Lospring:
+  sleuth:
+    sampler:
+      probability: 2.0
+
+feign:
+  circuitbreaker:
+    enabled: true

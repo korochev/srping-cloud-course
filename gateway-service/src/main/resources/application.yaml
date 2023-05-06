@@ -1,0 +1,30 @@
+server:
+  port: 4444
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+      - id: update
+        uri: lb://client-update
+        predicates:
+          - Path=/api/update/**
+
+#          - Header=spring-cloud-course
+#        filters:
+#          - RemoveResponseHeader=spring-cloud-course
+#      - id: error
+#        uri: no://op
+#        predicates:
+#          - Path=/**
+#        filters:
+#          - SetStatus=403
