@@ -11,9 +11,10 @@ spring:
       kafka:
         binder:
           brokers: ${KAFKA_ADDR:http://localhost:9092}
-      bus:
-        enabled: true
-        id: config-server
+    bus:
+      enabled: true
+      id: config-server
+
     config:
       server:
         git:
